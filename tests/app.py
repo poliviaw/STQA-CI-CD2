@@ -60,6 +60,22 @@ def update_pet(pet_id):
     data = request.get_json()
     pet = pets[pet_id]
     pet.update(data)
+
+    if (data['name']):
+        pet['name'] = data['name']
+
+    if (data['category']):    
+        pet['category'] = data['category']
+
+    if (data['gender']):   
+        pet['gender'] = data['gender']
+
+    if (data['available']):   
+        pet['available'] = data['available']
+
+    if (data['birthday']):   
+        pet['birthday'] = data['birthday']
+
     pets[pet_id] = pet
     return jsonify(pet), 200
 
